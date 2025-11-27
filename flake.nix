@@ -11,7 +11,7 @@
   };
 
   outputs = { ... }: {
-    homeManagerModules.default = { config, pkgs, ... }: {
+    homeModules.default = { config, pkgs, ... }: {
       programs.neovim = {
         enable = true;
         defaultEditor = true;
