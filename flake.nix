@@ -1,14 +1,7 @@
 {
   description = "Neovim config";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
+  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; };
 
   outputs = { ... }: {
     homeModules.default = { config, pkgs, ... }: {
