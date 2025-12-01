@@ -84,5 +84,13 @@ return {
 				},
 			},
 		})
+		local csharpier = vim.api.nvim_create_augroup("csharpier", { clear = true })
+		vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+			group = csharpier,
+			pattern = { "*.csproj", "*.fsproj" },
+			callback = function()
+				vim.bo.filetype = "xml"
+			end,
+		})
 	end,
 }
