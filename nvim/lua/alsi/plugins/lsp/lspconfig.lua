@@ -28,6 +28,16 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+		vim.lsp.config("rust_analyzer", {
+			settings = {
+				["rust-analyzer"] = {
+					cargo = {
+						allFeatures = true,
+					},
+					checkOnSave = true,
+				},
+			},
+		})
 		vim.lsp.config("ocamllsp", {
 			filetypes = { "ocaml", "ocaml.interface", "reason", "reason.interface" },
 			root_dir = require("lspconfig.util").root_pattern("dune-project", ".git"),
