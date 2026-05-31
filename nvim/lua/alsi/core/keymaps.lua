@@ -3,6 +3,13 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 keymap.set({ "i", "v" }, "<leader>jk", "<ESC>", { desc = "Exit mode with <leader>jk" })
+local function exit_term_map(key_map)
+	keymap.set({ "t" }, key_map, [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+end
+exit_term_map("<C-q>")
+exit_term_map("<Esc><Esc><Esc>")
+exit_term_map("<leader>jk")
+
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- increment/decrement numbers shorthands
