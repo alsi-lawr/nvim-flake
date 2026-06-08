@@ -9,35 +9,53 @@
     { ... }:
     {
       homeModules.default =
-        { config, pkgs, ... }:
         {
-          programs.neovim = {
-            enable = true;
-            defaultEditor = true;
-            viAlias = true;
-            vimAlias = true;
-            withRuby = true;
-            withPython3 = true;
+          config,
+          lib,
+          pkgs,
+          ...
+        }:
+        let
+          cfg = config.alsi.nvim;
+        in
+        {
+          options.alsi.nvim.configPath = lib.mkOption {
+            type = lib.types.str;
+            default = "/root/.nix/.nvim-flake/nvim";
+            description = "Path to the editable Neovim config directory.";
           };
 
-          xdg.configFile."nvim".source = ./nvim;
+          config = {
+            programs.neovim = {
+              enable = true;
+              defaultEditor = true;
+              viAlias = true;
+              vimAlias = true;
+              withRuby = true;
+              withPython3 = true;
+              sideloadInitLua = true;
+            };
 
-          home.packages = with pkgs; [
-            xclip
-            ripgrep
-            fd
-            lua-language-server
-            fzf
-            gcc
-            gnumake
-            pkg-config
-            cmake
-            ninja
-            unzip
-            tree-sitter
-            # nodePackages_latest.neovim
-            python3Packages.pynvim
-          ];
+            home.file.".config/nvim".source =
+              config.lib.file.mkOutOfStoreSymlink cfg.configPath;
+
+            home.packages = with pkgs; [
+              xclip
+              ripgrep
+              fd
+              fzf
+              gnumake
+              pkg-config
+              cmake
+              ninja
+              unzip
+              tree-sitter
+              neovim-node-client
+              python3Packages.pynvim
+              codex
+              claude-code
+            ];
+          };
         };
     };
 }
