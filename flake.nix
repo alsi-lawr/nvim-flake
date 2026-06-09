@@ -36,8 +36,7 @@
               sideloadInitLua = true;
             };
 
-            home.file.".config/nvim".source =
-              config.lib.file.mkOutOfStoreSymlink cfg.configPath;
+            home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink cfg.configPath;
 
             home.packages = with pkgs; [
               xclip
@@ -54,6 +53,9 @@
               python3Packages.pynvim
               codex
               claude-code
+              gemini-cli
+              luajitPackages.luacheck
+              doxygen
             ];
           };
         };
