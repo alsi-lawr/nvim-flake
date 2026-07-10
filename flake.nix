@@ -17,6 +17,7 @@
         }:
         let
           cfg = config.alsi.nvim;
+          codex = import ./codex-package.nix { inherit lib pkgs; };
         in
         {
           options.alsi.nvim.configPath = lib.mkOption {
@@ -51,7 +52,8 @@
               tree-sitter
               neovim-node-client
               python3Packages.pynvim
-              codex
+              codex.cli
+              (lib.lowPrio codex.appServer)
               claude-code
               gemini-cli
               luajitPackages.luacheck
