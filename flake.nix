@@ -55,7 +55,6 @@
               codex.cli
               (lib.lowPrio codex.appServer)
               claude-code
-              gemini-cli
               luajitPackages.luacheck
               doxygen
             ];
