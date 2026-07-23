@@ -39,7 +39,6 @@ return {
 				"somesass_ls",
 				"bashls",
 				"gopls",
-				"csharp_ls",
 				"fsautocomplete",
 				"nil_ls",
 				"rust_analyzer",

@@ -1,6 +1,5 @@
 return {
-	"alsi-lawr/neotheme.nvim",
-	branch = "master",
+	dir = "/home/alex/dev/neotheme.nvim",
 	priority = 1000,
 	config = function()
 		require("neotheme").setup({

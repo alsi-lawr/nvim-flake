@@ -10,7 +10,7 @@ return {
 		local lspconfig = vim.lsp.config
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local capabilities = cmp_nvim_lsp.default_capabilities()
-		local on_attach = require("alsi.core.lsp_keymaps").on_attach
+		local on_attach = require("alsi.core.lsp-keymaps").on_attach
 		vim.diagnostic.config({
 			signs = {
 				text = {
