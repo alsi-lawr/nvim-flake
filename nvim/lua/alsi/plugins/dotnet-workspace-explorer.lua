@@ -34,16 +34,8 @@ return {
 		},
 	},
 	config = function()
-		local command = vim.fn.exepath("dotnet-we")
-		if command == "" then
-			command = vim.fn.expand(
-				"~/dev/dotnet-cli-plus/src/WorkspaceExplorer/bin/Release/net10.0/Dotnet.WorkspaceExplorer"
-			)
-		end
-
 		require("dotnet-workspace-explorer").setup({
 			width = 50,
-			command = command,
 			presentation = {
 				devicons = true,
 			},
