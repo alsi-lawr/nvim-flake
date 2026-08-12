@@ -3,7 +3,7 @@
   pkgs,
 }:
 let
-  version = "0.145.0";
+  version = "0.147.0";
   target = "x86_64-unknown-linux-musl";
   fetchCodexPackage =
     {
@@ -28,13 +28,13 @@ in
 {
   cli = fetchCodexPackage {
     name = "codex-package";
-    hash = "sha256-bfIY2Je2bDgf9syK3otOS7Pd6UXhvahfSa8ASUaXUIk=";
+    hash = "sha256-EfjpvJK6rHX8ylZ5ED8O+isdogj8WONQuPSjRkuPgZU=";
     mainProgram = "codex";
   };
 
   appServer = fetchCodexPackage {
     name = "codex-app-server-package";
-    hash = "sha256-9NqyIWksnk87XqPyDF9Oa9Mnh/BIXqmPxKXxbP5HZMw=";
+    hash = "sha256-mFaCW0eWxAqDStumABzyJtJ3fBHtY8xKhAl2xQDZ5S8=";
     mainProgram = "codex-app-server";
   };
 }
