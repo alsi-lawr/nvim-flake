@@ -57,7 +57,6 @@ return {
 				"clang-format",
 				"golines",
 				"netcoredbg",
-				"markdownlint",
 				"editorconfig-checker",
 				"shfmt",
 				"ocamlformat",

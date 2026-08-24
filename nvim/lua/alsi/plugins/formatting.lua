@@ -15,7 +15,7 @@ return {
 				html = { "prettier" },
 				json = { "prettier" },
 				-- yaml = { "prettier" },
-				markdown = { "markdownlint" },
+				markdown = { "prettier_markdown" },
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
@@ -35,6 +35,12 @@ return {
 				timeout_ms = 10000,
 			},
 			formatters = {
+				prettier_markdown = {
+					inherit = "prettier",
+					args = { "--prose-wrap", "always", "--print-width", "120", "--write", "$FILENAME" },
+					range_args = false,
+					stdin = false,
+				},
 				nginxfmt = {
 					command = "nginxfmt",
 					args = { "--pipe" },
